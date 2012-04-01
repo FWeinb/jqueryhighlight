@@ -12,7 +12,7 @@ You can find some examples [here](http://fweinb.github.com/jqueryhighlight/)
 
 ```
 $('body').highlight("Search Query");
-´´´
+```
 
 This will search for the text "Search Query" in the whole document will only highlight the first hit. 
 
@@ -23,19 +23,20 @@ To highlight all occurrences of the text you have to pass an option object like 
 
 ```
 $('body').highlight("Search Query", {onlyFirst : false});
-´´´
+```
 
 ### The 'options' ###
 
 The default options are:
 
+```
 {
-                onlyFirst : true, 
-                idPrefix : '_'
-                className : 'jQuery_Highlight',
-                callback : function(element){}
+            onlyFirst : true, 
+            idPrefix : '_'
+            className : 'jQuery_Highlight',
+            callback : function(element){}
 }
-
+```
 
 *onlyFirst* : true if only the first occurrence should be highlighted. 
 *idPrefix* : the highlighted text will be wrapped in span tags with a id like idPrefix plus an up counting number starting at 1. 
