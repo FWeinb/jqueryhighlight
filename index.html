@@ -12,12 +12,113 @@
       font-family: Helvetica, Arial, FreeSans, san-serif;
       color: #000000;
     }
-  </style>
+
+    .content, pre, .search{
+        padding-left:100px;      
+    }
+
+    /* Normale usage */
+    .jQuery_Highlight{ /* Default ClassName */
+        background-color:yellow;      
+    }
+
+    /* Advanced usage */
+
+    .marker{
+        background-color:#3EACDA;
+        color:white;
+    }
+
+    .marker .custom{
+        display:none;     
+        top:0px;
+        right:0px;
+        color:black;
+    }
+
+    .marker:hover .custom{
+        display:block;      
+    }
+
+  </style>  
 </head>
 
 <body>
-
   <a href="https://github.com/FWeinb/jqueryhighlight"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+
+  <h1>Normal Usage:</h1>
+        <div class="content">
+            <p>Just Highlight the first occurence of the search query.</p>
+
+
+             Search For: <input id="searchPattern" type="text" value="Here is some text" /><button onClick="javascript:nowHighlight('');">Search</button>
+
+             <h2>The code block to search in:</h2>
+             <div id="searchBlock" class="search">
+                  <div>Here <b>is</b> <i>some</i> <u>text</u></div>
+              </div>
+
+              <h2>The HTML-Code:</h2>
+             <pre style='color:#000000;background:#ffffff;'><span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>div</span><span style='color:#a65700; '>></span>Here <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>b</span><span style='color:#a65700; '>></span>is<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>b</span><span style='color:#a65700; '>></span> <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>i</span><span style='color:#a65700; '>></span>some<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>i</span><span style='color:#a65700; '>></span> <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>u</span><span style='color:#a65700; '>></span>text<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>u</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>div</span><span style='color:#a65700; '>></span></pre>
+            </div>
+  <h1>Multiply Highlights:</h1>
+        <div class="content">
+        <p>Highlight all occurences</p>
+
+        Search For:  <input id="searchPattern1" type="text" value="Here" /><button onClick="javascript:allHighlight();">Search</button>
+
+        <h2>The code block to search in:</h2>
+        <div id="searchBlock1" class="search">
+            <div>Here <b>is</b> <i>some</i> <u>text</u></div>
+            <div>Here <b>is</b> <i>more</i> <u>text</u></div>
+        </div>
+
+        <h2>The HTML-Code:</h2>
+    <pre style='color:#000000;background:#ffffff;'><span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>div</span><span style='color:#a65700; '>></span>Here <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>b</span><span style='color:#a65700; '>></span>is<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>b</span><span style='color:#a65700; '>></span> <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>i</span><span style='color:#a65700; '>></span>some<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>i</span><span style='color:#a65700; '>></span> <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>u</span><span style='color:#a65700; '>></span>text<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>u</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>div</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>div</span><span style='color:#a65700; '>></span>Here <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>b</span><span style='color:#a65700; '>></span>is<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>b</span><span style='color:#a65700; '>></span> <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>i</span><span style='color:#a65700; '>></span>more<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>i</span><span style='color:#a65700; '>></span> <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>u</span><span style='color:#a65700; '>></span>text<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>u</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>div</span><span style='color:#a65700; '>></span>
+          </pre>
+     </div>
+
+  <h1>Advanced Usage:</h1>
+        <div class="content">
+        <p>Highlight the first occurence of the search query and add custom data witch appears on mouse over.</p>
+
+        Search For:  <input id="searchPattern2" type="text" value="Here is some text" /><button onClick="javascript:advancedHighlight();">Search</button>
+
+        <h2>The code block to search in:</h2>
+        <div id="searchBlock2" class="search">
+            <div>Here <b>is</b> <i>some</i> <u>text</u></div>
+        </div>
+
+        <h2>The HTML-Code:</h2>
+       <pre style='color:#000000;background:#ffffff;'><span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>div</span><span style='color:#a65700; '>></span>Here <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>b</span><span style='color:#a65700; '>></span>is<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>b</span><span style='color:#a65700; '>></span> <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>i</span><span style='color:#a65700; '>></span>some<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>i</span><span style='color:#a65700; '>></span> <span style='color:#a65700; '>&lt;</span><span style='color:#5f5035; '>u</span><span style='color:#a65700; '>></span>text<span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>u</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&lt;/</span><span style='color:#5f5035; '>div</span><span style='color:#a65700; '>></span></pre>
+        
+     </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="https://raw.github.com/FWeinb/jqueryhighlight/master/jquery.highlight.js" ></script>
+  <script>
+      function nowHighlight(id){
+          var text = $('#searchPattern'+id).val();
+          $('#searchBlock'+id).highlight(text);
+      }  
+      function allHighlight(){
+          var text = $('#searchPattern1').val();
+          $('#searchBlock1').highlight(text, {onlyFirst : false});
+      }  
+
+
+      function advancedHighlight(){
+           var text = $('#searchPattern2').val();
+
+           var addCustome = function(element){
+
+              $(element).append($("<div class='custom' />").html("Custome Data"));
+
+           }
+
+           $('#searchBlock2').highlight(text, {className : 'marker', callback : addCustome});          
+      }
+  </script>
 
 </body>
 </html>
