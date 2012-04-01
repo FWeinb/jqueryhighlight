@@ -45,6 +45,6 @@ _callback_ : a callback for each highlighted text, to add Custome data and do so
 
 ## In Action ##
 
-I used it in combination with my node.js [Quote.fm API](http://quote.fm/labs/) [nodequote](http://github.com/FWeinb/nodequote) to create a bookmarklet highlight the 'topquote' of an article. [Just try it](http://quotefm.cloudno.de)
+I used it in combination with my node.js [Quote.fm API](http://quote.fm/labs/) Wrapper [nodequote](http://github.com/FWeinb/nodequote) to create a bookmarklet highlight the 'topquote' of an article. [Just try it](http://quotefm.cloudno.de)
 
 
