@@ -48,10 +48,10 @@
 
   <h1>Normal Usage:</h1>
         <div class="content">
-            <p>Just Highlight the first occurence of the search query.</p>
+            <p>Highlight the first occurence of the search query.</p>
 
 
-             Search For: <input id="searchPattern" type="text" value="Here is some text" /><button onClick="javascript:nowHighlight('');">Search</button>
+             Search For: <input id="searchPattern" type="text" value="Here is some text" /><button onClick="javascript:nowHighlight('');">Search</button><button onClick="javascript:remove('', '.jQuery_Highlight')">Remove</button>
 
              <h2>The code block to search in:</h2>
              <div id="searchBlock" class="search">
@@ -65,7 +65,7 @@
         <div class="content">
         <p>Highlight all occurences</p>
 
-        Search For:  <input id="searchPattern1" type="text" value="Here" /><button onClick="javascript:allHighlight();">Search</button>
+        Search For:  <input id="searchPattern1" type="text" value="Here" /><button onClick="javascript:allHighlight();">Search</button><button onClick="javascript:remove('1', '.jQuery_Highlight')">Remove</button>
 
         <h2>The code block to search in:</h2>
         <div id="searchBlock1" class="search">
@@ -97,6 +97,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script src="https://raw.github.com/FWeinb/jqueryhighlight/master/jquery.highlight.js" ></script>
   <script>
+
+      function remove(id, clazz){
+           $("#searchBlock"+id).find(clazz).each(function(){var $this = $(this);$this.replaceWith($this.contents())});
+      }
       function nowHighlight(id){
           var text = $('#searchPattern'+id).val();
           $('#searchBlock'+id).highlight(text);
