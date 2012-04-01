@@ -5,14 +5,15 @@
 
            var defaultOptions = {
                 onlyFirst : true, 
-                className : "jQuery_Highlight",
+                idPrefix : '_',
+                className : 'jQuery_Highlight',
                 callback : function(){}
            }
 
            var options = $.extend(defaultOptions, options);
 
            var core = {
-               search : "",  
+               search : '',  
                length : 0,                   
                pos    : 0, 
                range  : null,
@@ -65,7 +66,7 @@
                                               }
                                           });
                     var newEl = document.createElement("span");
-                    newEl.id = "_"+core.count;
+                    newEl.id = options.idPrefix+core.count;
                     newEl.className = options.className;
                     newEl.appendChild(cont);
                     range.insertNode(newEl);
