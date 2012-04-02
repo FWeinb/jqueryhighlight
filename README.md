@@ -40,7 +40,7 @@ The default options are:
 ```
 
 **_onlyFirst_** : true if only the first occurrence should be highlighted.  
-**_idPrefix_** : the highlighted text will be wrapped in span tags with a id like idPrefix plus an up counting number starting at 1.
+**_idPrefix_** : the highlighted text will be wrapped in span tags with a id like idPrefix plus an up counting number starting at 1.  
 **_fussy_** : Switch to enable/disable fussy logic. Default is false.  
 **_className_** : the className of all highlighted text  
 **_callback_** : a callback for each highlighted text, to add Custome data and do some fancy stuff with highlighted text.   
