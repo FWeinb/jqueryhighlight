@@ -8,6 +8,7 @@
 						onlyFirst : true, 
 						idPrefix : '_',
 						className : 'jQuery_Highlight',
+						fussy : false,
 						callback : function(){}
 			}
 
@@ -45,12 +46,16 @@
 							for (var i=0;i<length;i++){	
 										if (nodeText[i] === core.search[core.pos]){
 
+
+											if (nodeText[i] === ' ' && nodeText[i+1] === ' ' && !options.fussy) continue;
+
 											if (core.pos === 0){
 							
 												core.range.setStart(this, i); 
 											
 											}
-						
+							
+
 											core.pos++;
 
 											if (core.pos === core.length){	
