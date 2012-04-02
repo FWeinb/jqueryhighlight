@@ -1,11 +1,11 @@
 jQuery Highlight 
 ----------------
 
-Find some text in the DOM. The difference between this and [other](http://www.gotoquiz.com/web-coding/programming/javascript/highlight-words-in-text-with-jquery/) [Plugins](http://johannburkard.de/blog/programming/javascript/highlight-javascript-text-higlighting-jquery-plugin.html) is that it looks for Text in multiply nodes. It uses [DOMRanges](http://www.w3.org/TR/DOM-Level-2-Traversal-Range/ranges.html) and therefor it only works in Firefox/WebKit/Opera.
+Find some text in the DOM. The difference between this and [other](http://www.gotoquiz.com/web-coding/programming/javascript/highlight-words-in-text-with-jquery/) [Plugins](http://johannburkard.de/blog/programming/javascript/highlight-javascript-text-higlighting-jquery-plugin.html) is that it looks for text in multiple nodes. It uses [DOMRanges](http://www.w3.org/TR/DOM-Level-2-Traversal-Range/ranges.html) and therefor it doesn't works in IE < 10.
 
 ## Usage ##
 
-You can find some examples [here](http://fweinb.github.com/jqueryhighlight/) 
+You can find some examples [here](http://fweinb.github.com/jqueryhighlight/).
 
 
 ### Basic usage: ###
@@ -17,7 +17,7 @@ $('body').highlight("Search Query");
 This will search for the text "Search Query" in the whole document will only highlight the first hit. 
 
 
-### Multiply Occurences ###
+### Multiple occurrences: ###
 
 To highlight all occurrences of the text you have to pass an option object like this:
 
