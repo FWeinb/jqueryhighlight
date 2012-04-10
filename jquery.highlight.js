@@ -47,11 +47,13 @@
 
 							for (var i=0;i<length;i++){	
 										
-										if(core.pos > 0 && !options.fuzzy){
-											if (nodeText[i].match(options.ignoredChars)) continue;
+										if(core.pos > 0 && options.fuzzy){
+											if (nodeText[i].match(options.ignoredChars) || (nodeText[i] === ' ' && nodeText[i+1] === ' ')) continue;
+											
 											while (core.search[core.pos].match(options.ignoredChars)){
 												core.pos++;
 											}
+											
 										}
 
 										if (nodeText[i] === core.search[core.pos]){
