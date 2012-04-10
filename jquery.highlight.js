@@ -1,4 +1,4 @@
-(function($){
+;(function($){
 	$.fn.extend({ 
 		highlight	: function(searchStrings, options) {
 
@@ -8,7 +8,9 @@
 						onlyFirst : true, 
 						idPrefix : '_',
 						className : 'jQuery_Highlight',
-						fussy : false,
+						fuzzy : true,
+						ignoredChars : /\r|\n/,
+						ignoredTags : /(script|style|iframe|object|embed)/i,
 						callback : function(){}
 			}
 
@@ -44,17 +46,21 @@
 							,	 	length = nodeText.length;	
 
 							for (var i=0;i<length;i++){	
+										
+										if(core.pos > 0 && !options.fuzzy){
+											if (nodeText[i].match(options.ignoredChars)) continue;
+											while (core.search[core.pos].match(options.ignoredChars)){
+												core.pos++;
+											}
+										}
+
 										if (nodeText[i] === core.search[core.pos]){
-
-
-											if (nodeText[i] === ' ' && nodeText[i+1] === ' ' && !options.fussy) continue;
 
 											if (core.pos === 0){
 							
 												core.range.setStart(this, i); 
 											
-											}
-							
+											}							
 
 											core.pos++;
 
@@ -71,7 +77,7 @@
 						
 							}
 						
-						}else if (!/(script|style|iframe|object|embed)/i.test(this.tagName)){
+						}else if (!options.ignoredTags.test(this.tagName)){
 						
 							core.startSearch($(this), callback); 
 						
