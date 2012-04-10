@@ -115,13 +115,13 @@
       function advancedHighlight(){
            var text = $('#searchPattern2').val();
 
-           var addCustome = function(element){
+           var addCustom = function(element){
 
-              $(element).append($("<div class='custom' />").html("Custome Data"));
+              $(element).append($("<div class='custom' />").html("Custom Data"));
 
            }
 
-           $('#searchBlock2').highlight(text, {className : 'marker', callback : addCustome});          
+           $('#searchBlock2').highlight(text, {className : 'marker', callback : addCustom});          
       }
   </script>
 
