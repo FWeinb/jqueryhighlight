@@ -9,7 +9,7 @@
 						idPrefix : '_',
 						className : 'jQuery_Highlight',
 						fuzzy : true,
-						ignoredChars : /\r|\n/,
+						ignoredChars : /\r|\n|\s/,
 						ignoredTags : /(script|style|iframe|object|embed)/i,
 						callback : function(){}
 			}
@@ -25,7 +25,7 @@
 				count 	: 	1, 
 
 				search : function(str, $node){
-							this.search = str;
+							this.search = (options.fuzzy)?$.trim(str):str;
 							this.length = this.search.length;
 							this.range = document.createRange();
 							this.startSearch($node, function(range){
@@ -40,25 +40,26 @@
 						
 						if (core.found && options.onlyFirst) return false;					
 						
-						if (this.nodeType === 3){	 
+						if (this.nodeType == 3){	 
 							
 							var 	nodeText = this.textContent
-							,	 	length = nodeText.length;	
+							,		length = nodeText.length;	
+
 
 							for (var i=0;i<length;i++){	
-										
-										if(core.pos > 0 && options.fuzzy){
-											if (nodeText[i].match(options.ignoredChars) || (nodeText[i] === ' ' && nodeText[i+1] === ' ')) continue;
-											
-											while (core.search[core.pos].match(options.ignoredChars)){
-												core.pos++;
+
+										if (core.pos > 0 && options.fuzzy){
+											if (options.ignoredChars.test(nodeText[i])) continue;
+											if (options.ignoredChars.test(core.search[core.pos])){
+												while (options.ignoredChars.test(core.search[core.pos])){
+													core.pos++;
+												}
 											}
-											
 										}
 
-										if (nodeText[i] === core.search[core.pos]){
+										if (nodeText[i] == core.search[core.pos]){
 
-											if (core.pos === 0){
+											if (core.pos == 0){
 							
 												core.range.setStart(this, i); 
 											
@@ -66,7 +67,7 @@
 
 											core.pos++;
 
-											if (core.pos === core.length){	
+											if (core.pos == core.length){	
 													core.found = true;									
 													core.range.setEnd(this, (i+1));	
 													callback(core.range);	
