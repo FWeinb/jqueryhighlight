@@ -4,7 +4,7 @@
 			var $this = $(this),
 				defaultOptions = {
 					onlyFirst : true,
-					idPrefix : '_',
+					classCountPrefix : '_',
 					className : 'jQuery_Highlight',
 					fuzzy : true,
 					ignoredChars : /\r|\n|\s/,
@@ -78,8 +78,7 @@
 								}
 							);
 						}
-						newEl.id = options.idPrefix + core.count;
-						newEl.className = options.className;
+						newEl.className = options.className + " " + options.classPrefix + core.count;
 						newEl.appendChild(cont);
 						range.insertNode(newEl);
 						return newEl;
