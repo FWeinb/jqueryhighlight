@@ -78,7 +78,7 @@
 								}
 							);
 						}
-						newEl.className = options.className + " " + options.classPrefix + core.count;
+						newEl.className = options.className + " " + options.classCountPrefix + core.count;
 						newEl.appendChild(cont);
 						range.insertNode(newEl);
 						return newEl;
