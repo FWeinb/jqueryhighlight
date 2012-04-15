@@ -32,9 +32,10 @@ The default options are:
 ```
 {
 	onlyFirst : true,
+	fuzzy : true,
+	ignorePrevFounds : true,
 	classCountPrefix : '_',
 	className : 'jQuery_Highlight',
-	fuzzy : true,
 	ignoredChars : /\r|\n|\s/,
 	ignoredTags : /(script|style|iframe|object|embed)/i,
 	callback : function () {}
@@ -42,9 +43,10 @@ The default options are:
 ```
 
 **_onlyFirst_** : true if only the first occurrence should be highlighted.  
+**_fuzzy_** : Switch to enable/disable fuzzy logic. Default is true.  
+**_ignorePrevFounds_** : don't search in previously found text.    
 **_classCountPrefix_** : the highlighted text will be wrapped in span tags with a class like **_className_** + ' ' + **_classCountPrefix_** + Upcounting_Number  
 **_className_** : the className of all highlighted text  
-**_fuzzy_** : Switch to enable/disable fuzzy logic. Default is true.  
 **_ignoredChars_** : RegEx to test if the Char is ignored in the comparison.   
 **_ignoredTags_** : RegEx, tags that are ignored while iterating the DOM.     
 **_callback_** : a callback for each highlighted text, to add Custome data and do some fancy stuff with highlighted text.   
