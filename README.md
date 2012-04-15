@@ -45,7 +45,7 @@ The default options are:
 **_onlyFirst_** : true if only the first occurrence should be highlighted.  
 **_fuzzy_** : Switch to enable/disable fuzzy logic. Default is true.  
 **_ignorePrevFounds_** : don't search in previously found text.    
-**_classCountPrefix_** : the highlighted text will be wrapped in span tags with a class like className + ' ' + classCountPrefix + Upcounting_Number  
+**_classCountPrefix_** : the highlighted text will be wrapped in span tags with a class like **_\className_** + ' ' + **_classCountPrefix_** + Upcounting\_Number  
 **_className_** : the className of all highlighted text  
 **_ignoredChars_** : RegEx to test if the Char is ignored in the comparison.   
 **_ignoredTags_** : RegEx, tags that are ignored while iterating the DOM.     
