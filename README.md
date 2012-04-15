@@ -42,7 +42,7 @@ The default options are:
 ```
 
 **_onlyFirst_** : true if only the first occurrence should be highlighted.  
-**_classCountPrefix_** : the highlighted text will be wrapped in span tags with a class like **_className_** + ' ' + **_classCountPrefix_** + Upcounting_Number 
+**_classCountPrefix_** : the highlighted text will be wrapped in span tags with a class like **_className_** + ' ' + **_classCountPrefix_** + Upcounting_Number  
 **_className_** : the className of all highlighted text  
 **_fuzzy_** : Switch to enable/disable fuzzy logic. Default is true.  
 **_ignoredChars_** : RegEx to test if the Char is ignored in the comparison.   

@@ -4,9 +4,10 @@
 			var $this = $(this),
 				defaultOptions = {
 					onlyFirst : true,
+					fuzzy : true,
+					ignorePrevFounds : true,
 					classCountPrefix : '_',
 					className : 'jQuery_Highlight',
-					fuzzy : true,
 					ignoredChars : /\r|\n|\s/,
 					ignoredTags : /(script|style|iframe|object|embed)/i,
 					callback : function () {}
@@ -61,24 +62,26 @@
 										core.pos = 0;
 									}
 								}
-							} else if (!options.ignoredTags.test(this.tagName)) {
+							} else if (!options.ignoredTags.test(this.tagName) && !((options.ignorePrevFounds === true) && typeof(this.className) === 'string' && ~this.className.indexOf(options.className))) {
 								core.startSearch($(this), callback);
 							}
 						});
 					},
 					surroundContent : function (range) {
 						var cont = range.extractContents(),
-							newEl = document.createElement('span');
-						if (cont.childNodes.length > 1) {
-							$(cont).contents().each(
-								function () {
-									if (/(p|div)/i.test(this.tagName)) {
-										$(this).wrapInner('<span class="' + options.className + '">');
-									}
+							$cont = $(cont).contents(),
+							className = options.className + " " + options.classCountPrefix + core.count,
+							newEl;
+
+						$cont.each(
+							function () {
+								if (/(p|div)/i.test(this.tagName)) {
+									$(this).wrapInner('<span class="' + className + '">');
 								}
-							);
-						}
-						newEl.className = options.className + " " + options.classCountPrefix + core.count;
+							}
+						);
+						newEl = document.createElement('span');
+						newEl.className = className;
 						newEl.appendChild(cont);
 						range.insertNode(newEl);
 						return newEl;
