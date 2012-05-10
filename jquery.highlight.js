@@ -1,3 +1,9 @@
+/*!
+ * jQuery jquery.highlight - v0.3 - 10/05/2012
+ * requires jquery.ba-each2.js
+ *
+ * Copyright (c) 2012 Fabrice Weinberg
+ */
 (function ($) {
 	$.fn.extend({
 		highlight : function (searchStrings, options) {
@@ -30,7 +36,7 @@
 						});
 					},
 					startSearch : function ($node, callback) {
-						$node.contents().each(function () {
+						$node.contents().each2(function (i, jq) {
 							if (core.found && options.onlyFirst) {return false; }
 							if (this.nodeType === 3) {
 								var	nodeText = this.textContent,
@@ -63,14 +69,14 @@
 									}
 								}
 							} else if (!options.ignoredTags.test(this.tagName) && !((options.ignorePrevFounds === true) && typeof(this.className) === 'string' && ~this.className.indexOf(options.className))) {
-								core.startSearch($(this), callback);
+								core.startSearch(jq, callback);
 							}
 						});
 					},
 					surroundContent : function (range) {
 						var cont = range.extractContents(),
 							$cont = $(cont).contents(),
-							className = options.className + " " + options.classCountPrefix + core.count,
+							className = options.className + ' ' + options.classCountPrefix + core.count,
 							newEl;
 
 						$cont.each(
